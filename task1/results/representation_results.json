@@ -1,0 +1,506 @@
+{
+  "umap_settings": {
+    "number_of_neighbors": 15,
+    "minimum_distance": 0.1,
+    "metric": "cosine",
+    "seed": 6304,
+    "joint_fit": true
+  },
+  "models": {
+    "resnet50_linear": {
+      "stability": {
+        "grayscale": {
+          "number_of_pairs": 500,
+          "mean_cosine_stability": 0.8003824949264526,
+          "standard_deviation": 0.09497235715389252,
+          "median": 0.8083250522613525,
+          "minimum": 0.33168354630470276,
+          "maximum": 1.0000001192092896,
+          "per_example_table": "task1/results/representation_tables/resnet50_linear_grayscale.csv"
+        },
+        "patch_shuffle_4x4": {
+          "number_of_pairs": 500,
+          "mean_cosine_stability": 0.6947986483573914,
+          "standard_deviation": 0.06965772807598114,
+          "median": 0.6975148916244507,
+          "minimum": 0.4541308581829071,
+          "maximum": 0.870205819606781,
+          "per_example_table": "task1/results/representation_tables/resnet50_linear_patch_shuffle_4x4.csv"
+        },
+        "cue_conflict": {
+          "number_of_pairs": 284,
+          "mean_cosine_stability": 0.3841381072998047,
+          "standard_deviation": 0.18126939237117767,
+          "median": 0.3616524040699005,
+          "minimum": 0.06100869178771973,
+          "maximum": 0.843171238899231,
+          "per_example_table": "task1/results/representation_tables/resnet50_linear_cue_conflict.csv"
+        },
+        "translation": {
+          "translation_8_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9729734659194946,
+            "standard_deviation": 0.013951028697192669,
+            "median": 0.9752929210662842,
+            "minimum": 0.910222053527832,
+            "maximum": 0.9952774047851562,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_8_left.csv"
+          },
+          "translation_8_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9639748334884644,
+            "standard_deviation": 0.022391214966773987,
+            "median": 0.97029048204422,
+            "minimum": 0.8554130792617798,
+            "maximum": 0.9935369491577148,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_8_right.csv"
+          },
+          "translation_8_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9683787822723389,
+            "standard_deviation": 0.014061583206057549,
+            "median": 0.9708317518234253,
+            "minimum": 0.8745760917663574,
+            "maximum": 0.991127073764801,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_8_up.csv"
+          },
+          "translation_8_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9643678069114685,
+            "standard_deviation": 0.017294147983193398,
+            "median": 0.9674354791641235,
+            "minimum": 0.8383448719978333,
+            "maximum": 0.9908221960067749,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_8_down.csv"
+          },
+          "displacement_8_averaged": {
+            "mean_cosine_stability": 0.9674237221479416,
+            "standard_deviation_across_directions": 0.0036381741520017385,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          },
+          "translation_16_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.95882648229599,
+            "standard_deviation": 0.022741300985217094,
+            "median": 0.9638723134994507,
+            "minimum": 0.8243300318717957,
+            "maximum": 0.9923542737960815,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_16_left.csv"
+          },
+          "translation_16_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9417474269866943,
+            "standard_deviation": 0.03637680783867836,
+            "median": 0.9522038102149963,
+            "minimum": 0.7731563448905945,
+            "maximum": 0.9895939826965332,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_16_right.csv"
+          },
+          "translation_16_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.954236626625061,
+            "standard_deviation": 0.024217357859015465,
+            "median": 0.959080696105957,
+            "minimum": 0.8057841062545776,
+            "maximum": 0.9886432886123657,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_16_up.csv"
+          },
+          "translation_16_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9475414156913757,
+            "standard_deviation": 0.03020545467734337,
+            "median": 0.9547651410102844,
+            "minimum": 0.7658697366714478,
+            "maximum": 0.9875591993331909,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_16_down.csv"
+          },
+          "displacement_16_averaged": {
+            "mean_cosine_stability": 0.9505879878997803,
+            "standard_deviation_across_directions": 0.00649273581802845,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          },
+          "translation_32_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9372081160545349,
+            "standard_deviation": 0.03633172810077667,
+            "median": 0.9444277286529541,
+            "minimum": 0.7540143728256226,
+            "maximum": 0.9943974614143372,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_32_left.csv"
+          },
+          "translation_32_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9163528680801392,
+            "standard_deviation": 0.04600399360060692,
+            "median": 0.9240914583206177,
+            "minimum": 0.7337454557418823,
+            "maximum": 0.9965128898620605,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_32_right.csv"
+          },
+          "translation_32_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9359260201454163,
+            "standard_deviation": 0.03924063593149185,
+            "median": 0.9429553747177124,
+            "minimum": 0.722054660320282,
+            "maximum": 0.9926600456237793,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_32_up.csv"
+          },
+          "translation_32_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9298213720321655,
+            "standard_deviation": 0.04580516740679741,
+            "median": 0.9408547878265381,
+            "minimum": 0.6862413287162781,
+            "maximum": 0.99118971824646,
+            "per_example_table": "task1/results/representation_tables/resnet50_linear_translation_32_down.csv"
+          },
+          "displacement_32_averaged": {
+            "mean_cosine_stability": 0.929827094078064,
+            "standard_deviation_across_directions": 0.008264852687716484,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          }
+        }
+      },
+      "umap_figures": {
+        "grayscale": "task1/results/figures/representations/resnet50_linear_grayscale_umap.png",
+        "patch_shuffle_4x4": "task1/results/figures/representations/resnet50_linear_patch_shuffle_4x4_umap.png",
+        "translation_32_right": "task1/results/figures/representations/resnet50_linear_translation_32_right_umap.png",
+        "cue_conflict": "task1/results/figures/representations/resnet50_linear_cue_conflict_umap.png"
+      }
+    },
+    "vit_b_16_linear": {
+      "stability": {
+        "grayscale": {
+          "number_of_pairs": 500,
+          "mean_cosine_stability": 0.7312353253364563,
+          "standard_deviation": 0.13129685819149017,
+          "median": 0.7459447383880615,
+          "minimum": 0.16646906733512878,
+          "maximum": 1.0000001192092896,
+          "per_example_table": "task1/results/representation_tables/vit_b_16_linear_grayscale.csv"
+        },
+        "patch_shuffle_4x4": {
+          "number_of_pairs": 500,
+          "mean_cosine_stability": 0.6328418254852295,
+          "standard_deviation": 0.11643493920564651,
+          "median": 0.6397498250007629,
+          "minimum": 0.185297429561615,
+          "maximum": 0.9234511256217957,
+          "per_example_table": "task1/results/representation_tables/vit_b_16_linear_patch_shuffle_4x4.csv"
+        },
+        "cue_conflict": {
+          "number_of_pairs": 284,
+          "mean_cosine_stability": 0.3927251994609833,
+          "standard_deviation": 0.22698351740837097,
+          "median": 0.37146466970443726,
+          "minimum": -0.018123291432857513,
+          "maximum": 0.9105417132377625,
+          "per_example_table": "task1/results/representation_tables/vit_b_16_linear_cue_conflict.csv"
+        },
+        "translation": {
+          "translation_8_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9468235969543457,
+            "standard_deviation": 0.03290184959769249,
+            "median": 0.9535919427871704,
+            "minimum": 0.7730713486671448,
+            "maximum": 0.9912071228027344,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_8_left.csv"
+          },
+          "translation_8_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9462435841560364,
+            "standard_deviation": 0.033255718648433685,
+            "median": 0.9545841217041016,
+            "minimum": 0.77191162109375,
+            "maximum": 0.9919582605361938,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_8_right.csv"
+          },
+          "translation_8_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9422791004180908,
+            "standard_deviation": 0.03257005289196968,
+            "median": 0.9485644698143005,
+            "minimum": 0.7853808999061584,
+            "maximum": 0.9905602931976318,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_8_up.csv"
+          },
+          "translation_8_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9423418045043945,
+            "standard_deviation": 0.03250177204608917,
+            "median": 0.9475345611572266,
+            "minimum": 0.776491641998291,
+            "maximum": 0.9907045960426331,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_8_down.csv"
+          },
+          "displacement_8_averaged": {
+            "mean_cosine_stability": 0.9444220215082169,
+            "standard_deviation_across_directions": 0.0021216189488768578,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          },
+          "translation_16_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9762704968452454,
+            "standard_deviation": 0.021381374448537827,
+            "median": 0.982075572013855,
+            "minimum": 0.847187340259552,
+            "maximum": 0.9995748400688171,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_16_left.csv"
+          },
+          "translation_16_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9755285382270813,
+            "standard_deviation": 0.023883039131760597,
+            "median": 0.9825789332389832,
+            "minimum": 0.804947018623352,
+            "maximum": 0.9995760321617126,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_16_right.csv"
+          },
+          "translation_16_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9765198826789856,
+            "standard_deviation": 0.02266075648367405,
+            "median": 0.9844189882278442,
+            "minimum": 0.8570371866226196,
+            "maximum": 0.9993717670440674,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_16_up.csv"
+          },
+          "translation_16_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9736037254333496,
+            "standard_deviation": 0.02855774201452732,
+            "median": 0.982896089553833,
+            "minimum": 0.7812159061431885,
+            "maximum": 0.9995632171630859,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_16_down.csv"
+          },
+          "displacement_16_averaged": {
+            "mean_cosine_stability": 0.9754806607961655,
+            "standard_deviation_across_directions": 0.0011433504987508059,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          },
+          "translation_32_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9464564323425293,
+            "standard_deviation": 0.04162852093577385,
+            "median": 0.9549190998077393,
+            "minimum": 0.7115355134010315,
+            "maximum": 0.9987360835075378,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_32_left.csv"
+          },
+          "translation_32_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9475184082984924,
+            "standard_deviation": 0.040600840002298355,
+            "median": 0.9583369493484497,
+            "minimum": 0.7210186719894409,
+            "maximum": 0.9986902475357056,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_32_right.csv"
+          },
+          "translation_32_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9395702481269836,
+            "standard_deviation": 0.05068374425172806,
+            "median": 0.95604407787323,
+            "minimum": 0.6488820910453796,
+            "maximum": 0.9984012842178345,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_32_up.csv"
+          },
+          "translation_32_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9365099668502808,
+            "standard_deviation": 0.05315280333161354,
+            "median": 0.9533147811889648,
+            "minimum": 0.6198760271072388,
+            "maximum": 0.9984827041625977,
+            "per_example_table": "task1/results/representation_tables/vit_b_16_linear_translation_32_down.csv"
+          },
+          "displacement_32_averaged": {
+            "mean_cosine_stability": 0.9425137639045715,
+            "standard_deviation_across_directions": 0.004617926198989153,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          }
+        }
+      },
+      "umap_figures": {
+        "grayscale": "task1/results/figures/representations/vit_b_16_linear_grayscale_umap.png",
+        "patch_shuffle_4x4": "task1/results/figures/representations/vit_b_16_linear_patch_shuffle_4x4_umap.png",
+        "translation_32_right": "task1/results/figures/representations/vit_b_16_linear_translation_32_right_umap.png",
+        "cue_conflict": "task1/results/figures/representations/vit_b_16_linear_cue_conflict_umap.png"
+      }
+    },
+    "clip_vit_b_32_linear": {
+      "stability": {
+        "grayscale": {
+          "number_of_pairs": 500,
+          "mean_cosine_stability": 0.8872421383857727,
+          "standard_deviation": 0.04315810278058052,
+          "median": 0.892865777015686,
+          "minimum": 0.6850227117538452,
+          "maximum": 1.0,
+          "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_grayscale.csv"
+        },
+        "patch_shuffle_4x4": {
+          "number_of_pairs": 500,
+          "mean_cosine_stability": 0.7488515973091125,
+          "standard_deviation": 0.05970187857747078,
+          "median": 0.7550157904624939,
+          "minimum": 0.5188791155815125,
+          "maximum": 0.879791796207428,
+          "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_patch_shuffle_4x4.csv"
+        },
+        "cue_conflict": {
+          "number_of_pairs": 284,
+          "mean_cosine_stability": 0.7419805526733398,
+          "standard_deviation": 0.09484925866127014,
+          "median": 0.7416028380393982,
+          "minimum": 0.5019305348396301,
+          "maximum": 0.9519658088684082,
+          "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_cue_conflict.csv"
+        },
+        "translation": {
+          "translation_8_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9783967137336731,
+            "standard_deviation": 0.011580420657992363,
+            "median": 0.9815228581428528,
+            "minimum": 0.9282865524291992,
+            "maximum": 0.9967828989028931,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_8_left.csv"
+          },
+          "translation_8_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9777352809906006,
+            "standard_deviation": 0.013339102268218994,
+            "median": 0.9810101985931396,
+            "minimum": 0.9096713066101074,
+            "maximum": 0.9968162178993225,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_8_right.csv"
+          },
+          "translation_8_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.977834939956665,
+            "standard_deviation": 0.011632086709141731,
+            "median": 0.9797738790512085,
+            "minimum": 0.9077221751213074,
+            "maximum": 0.9961186051368713,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_8_up.csv"
+          },
+          "translation_8_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9779567718505859,
+            "standard_deviation": 0.011282556690275669,
+            "median": 0.9800376892089844,
+            "minimum": 0.9050961136817932,
+            "maximum": 0.9948081374168396,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_8_down.csv"
+          },
+          "displacement_8_averaged": {
+            "mean_cosine_stability": 0.9779809266328812,
+            "standard_deviation_across_directions": 0.00025254517095163465,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          },
+          "translation_16_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9612314701080322,
+            "standard_deviation": 0.023037759587168694,
+            "median": 0.9662384986877441,
+            "minimum": 0.801476001739502,
+            "maximum": 0.992355465888977,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_16_left.csv"
+          },
+          "translation_16_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.960801362991333,
+            "standard_deviation": 0.023947499692440033,
+            "median": 0.9664644002914429,
+            "minimum": 0.8221790194511414,
+            "maximum": 0.9937472939491272,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_16_right.csv"
+          },
+          "translation_16_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9650228023529053,
+            "standard_deviation": 0.017166869714856148,
+            "median": 0.9684879183769226,
+            "minimum": 0.8749904036521912,
+            "maximum": 0.9917651414871216,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_16_up.csv"
+          },
+          "translation_16_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9657687544822693,
+            "standard_deviation": 0.01838412508368492,
+            "median": 0.9695771336555481,
+            "minimum": 0.8478817939758301,
+            "maximum": 0.9922762513160706,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_16_down.csv"
+          },
+          "displacement_16_averaged": {
+            "mean_cosine_stability": 0.963206097483635,
+            "standard_deviation_across_directions": 0.002210742561146617,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          },
+          "translation_32_left": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9615796804428101,
+            "standard_deviation": 0.025023140013217926,
+            "median": 0.9661188721656799,
+            "minimum": 0.8078345060348511,
+            "maximum": 0.9975985288619995,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_32_left.csv"
+          },
+          "translation_32_right": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9612878561019897,
+            "standard_deviation": 0.024702172726392746,
+            "median": 0.9657037258148193,
+            "minimum": 0.8252167105674744,
+            "maximum": 0.9983134865760803,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_32_right.csv"
+          },
+          "translation_32_up": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9700612425804138,
+            "standard_deviation": 0.02019388973712921,
+            "median": 0.9741920232772827,
+            "minimum": 0.8440124988555908,
+            "maximum": 0.9982461333274841,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_32_up.csv"
+          },
+          "translation_32_down": {
+            "number_of_pairs": 500,
+            "mean_cosine_stability": 0.9712008237838745,
+            "standard_deviation": 0.01919645071029663,
+            "median": 0.9745721220970154,
+            "minimum": 0.8435213565826416,
+            "maximum": 0.9979076385498047,
+            "per_example_table": "task1/results/representation_tables/clip_vit_b_32_linear_translation_32_down.csv"
+          },
+          "displacement_32_averaged": {
+            "mean_cosine_stability": 0.966032400727272,
+            "standard_deviation_across_directions": 0.004617401398718357,
+            "number_of_directions": 4,
+            "number_of_pairs_per_direction": 500
+          }
+        }
+      },
+      "umap_figures": {
+        "grayscale": "task1/results/figures/representations/clip_vit_b_32_linear_grayscale_umap.png",
+        "patch_shuffle_4x4": "task1/results/figures/representations/clip_vit_b_32_linear_patch_shuffle_4x4_umap.png",
+        "translation_32_right": "task1/results/figures/representations/clip_vit_b_32_linear_translation_32_right_umap.png",
+        "cue_conflict": "task1/results/figures/representations/clip_vit_b_32_linear_cue_conflict_umap.png"
+      }
+    }
+  }
+}

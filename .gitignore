@@ -250,3 +250,7 @@ report/*.synctex.gz
 # Downloaded external model weights
 task1/external_weights/
 task1/results/cue_conflicts/contact_sheets/
+
+/*.zip
+/cue_conflict_candidates_reviewed.csv
+/task1_representation_results/

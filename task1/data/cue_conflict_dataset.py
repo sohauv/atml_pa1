@@ -8,6 +8,7 @@ import torch
 from PIL import Image
 from torch.utils.data import DataLoader, Dataset
 from torchvision.transforms import v2
+from torchvision.datasets import STL10
 
 
 def parse_accepted_column(
@@ -136,6 +137,93 @@ def build_cue_conflict_dataloader(
         metadata_path=metadata_path,
         image_size=image_size,
         accepted_only=accepted_only,
+    )
+
+    return DataLoader(
+        dataset=dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=num_workers,
+        pin_memory=pin_memory,
+        persistent_workers=num_workers > 0,
+    )
+
+class CueConflictContentDataset(Dataset):
+    def __init__(
+        self,
+        metadata_path: str | Path,
+        data_root: str | Path,
+        image_size: int = 224,
+    ) -> None:
+        generated_dataset = CueConflictDataset(
+            metadata_path=metadata_path,
+            image_size=image_size,
+            accepted_only=True,
+        )
+
+        self.metadata = generated_dataset.metadata
+        self.transform = generated_dataset.transform
+
+        self.test_dataset = STL10(
+            root=data_root,
+            split="test",
+            download=False,
+        )
+
+    def __len__(self) -> int:
+        return len(self.metadata)
+
+    def __getitem__(
+        self,
+        dataset_index: int,
+    ) -> dict[str, Any]:
+        row = self.metadata.iloc[dataset_index]
+
+        content_index = int(row["content_index"])
+        image, dataset_label = self.test_dataset[
+            content_index
+        ]
+
+        shape_label = int(row["shape_class_id"])
+
+        if int(dataset_label) != shape_label:
+            raise ValueError(
+                "Content-image label does not match metadata "
+                f"for {row['candidate_id']}: "
+                f"{dataset_label} != {shape_label}."
+            )
+
+        candidate_number = int(
+            str(row["candidate_id"]).split("_")[-1]
+        )
+
+        return {
+            "image": self.transform(image.convert("RGB")),
+            "label": torch.tensor(
+                shape_label,
+                dtype=torch.long,
+            ),
+            "index": torch.tensor(
+                candidate_number,
+                dtype=torch.long,
+            ),
+            "identifier": str(row["candidate_id"]),
+            "condition": "cue_conflict_clean_content",
+        }
+
+
+def build_cue_conflict_content_dataloader(
+    metadata_path: str | Path,
+    data_root: str | Path,
+    image_size: int = 224,
+    batch_size: int = 64,
+    num_workers: int = 2,
+    pin_memory: bool = True,
+) -> DataLoader:
+    dataset = CueConflictContentDataset(
+        metadata_path=metadata_path,
+        data_root=data_root,
+        image_size=image_size,
     )
 
     return DataLoader(

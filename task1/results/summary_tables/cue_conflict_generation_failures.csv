@@ -1,0 +1,7 @@
+candidate_id,pair_id,direction,shape_class_name,texture_class_name,image_path,rejection_reason
+cc_037,0,bird_to_airplane,bird,airplane,task1/generated_images/cue_conflicts/cc_037_shape-bird_texture-airplane.png,main object shape is no longer visually recognizable
+cc_048,0,bird_to_airplane,bird,airplane,task1/generated_images/cue_conflicts/cc_048_shape-bird_texture-airplane.png,severe artifacts obscure most of the image
+cc_055,0,bird_to_airplane,bird,airplane,task1/generated_images/cue_conflicts/cc_055_shape-bird_texture-airplane.png,main object shape is no longer visually recognizable
+cc_058,0,bird_to_airplane,bird,airplane,task1/generated_images/cue_conflicts/cc_058_shape-bird_texture-airplane.png,severe artifacts obscure most of the image
+cc_121,2,deer_to_ship,deer,ship,task1/generated_images/cue_conflicts/cc_121_shape-deer_texture-ship.png,main object shape is no longer visually recognizable
+cc_129,2,deer_to_ship,deer,ship,task1/generated_images/cue_conflicts/cc_129_shape-deer_texture-ship.png,severe artifacts obscure most of the image

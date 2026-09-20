@@ -1,0 +1,67 @@
+seed: 6304
+
+dataset:
+  name: stl10
+  root: datasets
+  validation_fraction: 0.20
+  evaluation_size: 500
+  evaluation_per_class: 50
+  image_size: 224
+
+dataloader:
+  batch_size: 64
+  num_workers: 2
+  pin_memory: true
+
+training:
+  max_epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  patience: 5
+
+models:
+  resnet:
+    name: resnet50
+    weights: IMAGENET1K_V2
+    representation_dim: 2048
+
+  vit:
+    name: vit_b_16
+    weights: IMAGENET1K_V1
+    representation_dim: 768
+
+  clip:
+    name: ViT-B-32
+    pretrained: openai
+    representation_dim: 512
+    prompt: "a photo of a {}."
+
+interventions:
+  additional_color:
+    name: fixed_hue_rotation
+    hue_factor: 0.5
+
+  translation:
+    displacements: [0, 8, 16, 32]
+    directions: [left, right, up, down]
+    padding_mode: reflect
+
+  patch_shuffle:
+    grid_rows: 4
+    grid_columns: 4
+
+cue_conflicts:
+  minimum_valid_images: 200
+  class_pairs:
+    - [airplane, bird]
+    - [car, horse]
+    - [deer, ship]
+    - [cat, truck]
+    - [dog, monkey]
+
+representation:
+  method: umap
+  n_components: 2
+  n_neighbors: 15
+  min_dist: 0.1
+  metric: cosine

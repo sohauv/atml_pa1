@@ -216,3 +216,33 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Datasets and generated transformations
+datasets/
+**/datasets/
+**/generated_images/
+**/cue_conflicts/
+
+# Extracted features and model checkpoints
+**/cache/
+**/checkpoints/
+*.pth
+*.pt
+*.ckpt
+
+# Experiment tracking
+wandb/
+runs/
+
+# Notebook and system files
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Report build files
+report/*.aux
+report/*.bbl
+report/*.blg
+report/*.log
+report/*.out
+report/*.synctex.gz

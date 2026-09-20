@@ -249,3 +249,4 @@ report/*.synctex.gz
 
 # Downloaded external model weights
 task1/external_weights/
+task1/results/cue_conflicts/contact_sheets/

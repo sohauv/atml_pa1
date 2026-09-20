@@ -254,3 +254,6 @@ task1/results/cue_conflicts/contact_sheets/
 /*.zip
 /cue_conflict_candidates_reviewed.csv
 /task1_representation_results/
+# Keep reproducibility metadata and predictions for reviewed cue conflicts
+!task1/results/cue_conflicts/
+!task1/results/cue_conflicts/**

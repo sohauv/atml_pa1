@@ -246,3 +246,6 @@ report/*.blg
 report/*.log
 report/*.out
 report/*.synctex.gz
+
+# Downloaded external model weights
+task1/external_weights/

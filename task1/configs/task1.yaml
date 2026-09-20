@@ -51,7 +51,18 @@ interventions:
     grid_columns: 4
 
 cue_conflicts:
+  method: adain
+  style_strength: 0.8
+  candidates_per_direction: 30
   minimum_valid_images: 200
+  image_size: 224
+  batch_size: 16
+
+  rejection_rule:
+    - main object shape is no longer visually recognizable
+    - severe artifacts obscure most of the image
+    - transferred texture is not visibly present
+
   class_pairs:
     - [airplane, bird]
     - [car, horse]

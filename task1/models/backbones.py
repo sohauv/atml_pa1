@@ -117,6 +117,7 @@ class CLIPViTB32Backbone(FrozenBackbone):
         self.model, _, _ = open_clip.create_model_and_transforms(
             model_name="ViT-B-32",
             pretrained="openai",
+            force_quick_gelu=True,
         )
         self.tokenizer = open_clip.get_tokenizer("ViT-B-32")
 

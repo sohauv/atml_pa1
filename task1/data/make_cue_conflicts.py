@@ -145,31 +145,31 @@ def load_adain_models(
             parameter.requires_grad = False
 
         def style_transfer(
-        vgg: nn.Module,
-        decoder: nn.Module,
-        content: torch.Tensor,
-        style: torch.Tensor,
-        alpha: float = 1.0,
-    ) -> torch.Tensor:
-        if not 0.0 <= alpha <= 1.0:
-            raise ValueError(
-                "Style strength alpha must be between 0 and 1."
+            vgg: nn.Module,
+            decoder: nn.Module,
+            content: torch.Tensor,
+            style: torch.Tensor,
+            alpha: float = 1.0,
+        ) -> torch.Tensor:
+            if not 0.0 <= alpha <= 1.0:
+                raise ValueError(
+                    "Style strength alpha must be between 0 and 1."
+                )
+
+            content_features = vgg(content)
+            style_features = vgg(style)
+
+            stylized_features = adaptive_instance_normalization(
+                content_features,
+                style_features,
             )
 
-        content_features = vgg(content)
-        style_features = vgg(style)
+            blended_features = (
+                alpha * stylized_features
+                + (1.0 - alpha) * content_features
+            )
 
-        stylized_features = adaptive_instance_normalization(
-            content_features,
-            style_features,
-        )
-
-        blended_features = (
-            alpha * stylized_features
-            + (1.0 - alpha) * content_features
-        )
-
-        return decoder(blended_features)
+            return decoder(blended_features)
 
     return vgg, decoder, style_transfer
 

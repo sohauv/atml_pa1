@@ -1,0 +1,3 @@
+[submodule "task1/external/pytorch-AdaIN"]
+	path = task1/external/pytorch-AdaIN
+	url = https://github.com/naoto0804/pytorch-AdaIN.git

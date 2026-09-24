@@ -35,10 +35,13 @@ def resolve_pacs_root(
     root = Path(root).expanduser().resolve()
     candidates = (
         root,
+        root / "images",
         root / "kfold",
         root / "PACS",
+        root / "PACS" / "images",
         root / "PACS" / "kfold",
         root / "pacs",
+        root / "pacs" / "images",
         root / "pacs" / "kfold",
     )
     for candidate in candidates:

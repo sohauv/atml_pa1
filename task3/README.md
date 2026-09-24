@@ -53,3 +53,58 @@ weights are therefore 0.1, 1, and 10, with `dan_dg` representing weight 1.
 
 Do not run a Sketch evaluation until ERM, DAN-DG, SAM, the controlled-study
 settings, source-domain separability, and sharpness-proxy decisions are fixed.
+
+## Source-only diagnostics
+
+After every checkpoint and controlled-study setting has been fixed, run the
+source-validation diagnostics. This stage still does not load Sketch:
+
+```bash
+python -m task3.evaluate_sources \
+  --data-root /kaggle/working/datasets/pacs_extracted/pacs
+```
+
+This produces per-source accuracy and macro-F1, mean and worst-source scores,
+a balanced source-domain linear-probe accuracy, and the fixed-batch normalized
+ascent sharpness proxy. Outputs are written to
+`task3/results/source_diagnostics/`.
+
+## Final Sketch evaluation
+
+Only after the source-only stage is complete, run the one-time final target
+evaluation:
+
+```bash
+python -m task3.evaluate_final \
+  --data-root /kaggle/working/datasets/pacs_extracted/pacs
+```
+
+The evaluator records aggregate and per-class Sketch metrics, confusion
+matrices, prediction CSVs, and changes relative to the reused ERM baseline in
+`task3/results/final/`.
+
+## Reporting artifacts
+
+```bash
+python -m task3.evaluation.plot_task3_results \
+  --data-root /kaggle/working/datasets/pacs_extracted/pacs
+```
+
+Figures and their compact source tables are written to
+`task3/results/reporting/`.
+
+## Fixed results
+
+| Run | Mean source macro-F1 | Source separability | Sharpness increase | Sketch accuracy | Sketch macro-F1 |
+|---|---:|---:|---:|---:|---:|
+| ERM | 0.9401 | 0.8738 | 0.2255 | 0.6829 | 0.6727 |
+| DAN-DG, lambda 0.1 | 0.9483 | 0.7442 | 0.1671 | 0.6931 | 0.7182 |
+| DAN-DG, lambda 1 | 0.0507 | 0.3322 | 0.0138 | 0.0407 | 0.0112 |
+| DAN-DG, lambda 10 | 0.0507 | 0.3322 | 0.0484 | 0.0407 | 0.0112 |
+| SAM, rho 0.05 | 0.9576 | 0.8571 | 0.1129 | 0.6434 | 0.6805 |
+
+Source-domain separability has chance level `1/3`. The near-chance values for
+DAN-DG weights 1 and 10 accompany chance-level classification, showing feature
+collapse rather than useful domain invariance. The controlled weight 0.1
+reduces separability while retaining class information and gives the strongest
+Sketch macro-F1.

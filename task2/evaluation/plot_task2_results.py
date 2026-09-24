@@ -22,6 +22,14 @@ DISPLAY_NAMES = {
     "dan_lambda0_1": "DAN (lambda=0.1)",
     "dan_lambda10": "DAN (lambda=10)",
 }
+
+AXIS_NAMES = {
+    "source_only": "Source-\nonly",
+    "dan": "DAN\n(lambda=1)",
+    "dann": "DANN",
+    "cdan": "CDAN",
+}
+
 MAIN_RUNS = ("source_only", "dan", "dann", "cdan")
 DAN_RUNS = ("dan_lambda0_1", "dan", "dan_lambda10")
 DAN_LAMBDAS = (0.1, 1.0, 10.0)
@@ -69,7 +77,7 @@ def save_main_comparison(summary: pd.DataFrame, output_dir: Path) -> None:
 
     axes[0].bar(x - width / 2, main["target_accuracy"], width, label="Accuracy")
     axes[0].bar(x + width / 2, main["target_macro_f1"], width, label="Macro-F1")
-    axes[0].set_xticks(x, [DISPLAY_NAMES[name] for name in main["run_name"]])
+    axes[0].set_xticks(x, [AXIS_NAMES[name] for name in main["run_name"]])
     axes[0].set_ylim(0, 0.8)
     axes[0].set_ylabel("Sketch score")
     axes[0].set_title("Target classification")
@@ -77,7 +85,7 @@ def save_main_comparison(summary: pd.DataFrame, output_dir: Path) -> None:
 
     axes[1].bar(x, main["domain_separability"], color="#d95f02")
     axes[1].axhline(0.5, color="black", linestyle="--", linewidth=1, label="Chance")
-    axes[1].set_xticks(x, [DISPLAY_NAMES[name] for name in main["run_name"]])
+    axes[1].set_xticks(x, [AXIS_NAMES[name] for name in main["run_name"]])
     axes[1].set_ylim(0.45, 1.02)
     axes[1].set_ylabel("Domain-classifier accuracy")
     axes[1].set_title("Source-target separability")
@@ -221,9 +229,9 @@ def select_failures(predictions: dict[str, pd.DataFrame], count: int = 8) -> pd.
 def save_failure_examples(
     selected: pd.DataFrame, image_root: Path, output_dir: Path
 ) -> None:
-    columns = 4
+    columns = 2
     rows = int(np.ceil(len(selected) / columns))
-    fig, axes = plt.subplots(rows, columns, figsize=(14, 3.8 * rows))
+    fig, axes = plt.subplots(rows, columns, figsize=(12, 4.6 * rows))
     axes = np.atleast_1d(axes).reshape(-1)
     for ax, (_, row) in zip(axes, selected.iterrows()):
         with Image.open(image_root / row["path"]) as image_file:
@@ -237,7 +245,7 @@ def save_failure_examples(
                 f"{DISPLAY_NAMES[run_name]}: {row[f'{run_name}_prediction']} "
                 f"({row[f'{run_name}_confidence']:.2f})"
             )
-        ax.set_title("\n".join(lines), fontsize=8)
+        ax.set_title("\n".join(lines), fontsize=9)
         ax.axis("off")
     for ax in axes[len(selected):]:
         ax.axis("off")

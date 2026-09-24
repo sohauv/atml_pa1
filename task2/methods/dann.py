@@ -40,6 +40,11 @@ def dann_objective(
     classification_loss = nn.functional.cross_entropy(source_logits, source_labels)
 
     combined_features = torch.cat([source_features, target_features], dim=0)
+    combined_features = nn.functional.normalize(
+        combined_features,
+        p=2,
+        dim=1,
+    )
     labels = domain_labels(
         source_features.shape[0],
         target_features.shape[0],

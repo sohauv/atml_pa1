@@ -1,0 +1,4 @@
+method:
+  name: source_only
+  classification_loss_weight: 1.0
+  uses_unlabeled_target: false

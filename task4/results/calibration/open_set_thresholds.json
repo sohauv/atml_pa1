@@ -1,0 +1,86 @@
+{
+  "protocol": {
+    "seed": 6304,
+    "threshold_percentile": 95.0,
+    "threshold_fit_split": "cifar10_validation",
+    "mahalanobis_fit_split": "unaugmented_cifar10_train",
+    "larger_score_means": "more_unknown_like",
+    "cifar100_used": false
+  },
+  "runs": {
+    "vanilla": {
+      "checkpoint": "task4/checkpoints/vanilla_best.pt",
+      "selected_epoch": 95,
+      "classification": {
+        "accuracy": 0.953,
+        "macro_f1": 0.9531098918258131
+      },
+      "scores": {
+        "msp": {
+          "threshold": 0.153510454297066,
+          "validation_known_acceptance": 0.95,
+          "validation_score_mean": 0.021839115768671036,
+          "validation_score_std": 0.07879364490509033
+        },
+        "mls": {
+          "threshold": -5.951216053962705,
+          "validation_known_acceptance": 0.95,
+          "validation_score_mean": -9.058857917785645,
+          "validation_score_std": 1.5140836238861084
+        },
+        "energy": {
+          "threshold": -6.146822977066039,
+          "validation_known_acceptance": 0.95,
+          "validation_score_mean": -9.085474967956543,
+          "validation_score_std": 1.4508997201919556
+        },
+        "mahalanobis": {
+          "threshold": 2976.3443359375,
+          "validation_known_acceptance": 0.95,
+          "validation_score_mean": 806.4716186523438,
+          "validation_score_std": 894.7594604492188
+        }
+      },
+      "mahalanobis_statistics": "task4/results/calibration/vanilla_mahalanobis_stats.npz"
+    },
+    "gcsc": {
+      "checkpoint": "task4/checkpoints/gcsc_best.pt",
+      "selected_epoch": 96,
+      "classification": {
+        "accuracy": 0.9588,
+        "macro_f1": 0.9588248410423015
+      },
+      "scores": {
+        "mls": {
+          "threshold": -6.208876919746399,
+          "validation_known_acceptance": 0.95,
+          "validation_score_mean": -9.419219017028809,
+          "validation_score_std": 1.7417528629302979
+        }
+      }
+    },
+    "proser": {
+      "checkpoint": "task4/checkpoints/proser_best.pt",
+      "selected_epoch": 1,
+      "classification": {
+        "accuracy": 0.9482,
+        "macro_f1": 0.948312822428002
+      },
+      "scores": {
+        "mls": {
+          "threshold": -4.358385872840881,
+          "validation_known_acceptance": 0.95,
+          "validation_score_mean": -7.326838970184326,
+          "validation_score_std": 1.4296420812606812
+        },
+        "placeholder": {
+          "threshold": 7.306970655918121e-05,
+          "validation_known_acceptance": 0.95,
+          "validation_score_mean": -0.00016990381118375808,
+          "validation_score_std": 0.00011275120778009295
+        }
+      },
+      "placeholder_definition": "max dummy probability minus max known probability after reducing five dummies to their strongest logit; temperature=1024.0"
+    }
+  }
+}

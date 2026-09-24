@@ -1,0 +1,28 @@
+{
+  "experiment": {
+    "seed": 6304
+  },
+  "data": {
+    "root": "/kaggle/input/datasets/sohauvv/cifar10-local",
+    "split_manifest": "task4/results/cifar10_seed6304_split.json",
+    "validation_fraction": 0.1,
+    "batch_size": 128,
+    "num_workers": 2
+  },
+  "model": {
+    "number_of_classes": 10
+  },
+  "training": {
+    "epochs": 100,
+    "learning_rate": 0.1,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "use_automatic_mixed_precision": true
+  },
+  "method": {
+    "name": "gcsc",
+    "randaugment": true,
+    "randaugment_num_ops": 2,
+    "randaugment_magnitude": 9
+  }
+}

@@ -12,5 +12,5 @@ method:
   detach_probabilities: false
   entropy_conditioning: false
 
-  training:
+training:
   use_automatic_mixed_precision: false

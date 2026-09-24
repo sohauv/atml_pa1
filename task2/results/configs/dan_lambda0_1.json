@@ -1,0 +1,70 @@
+{
+  "experiment": {
+    "seed": 6304,
+    "output_directory": "task2/results",
+    "checkpoint_directory": "task2/checkpoints"
+  },
+  "data": {
+    "root": "/kaggle/working/datasets/pacs_extracted/pacs",
+    "split_manifest": "shared/splits/pacs_sketch_seed6304.json",
+    "source_domains": [
+      "photo",
+      "art_painting",
+      "cartoon"
+    ],
+    "target_domain": "sketch",
+    "validation_fraction": 0.2,
+    "resize": 256,
+    "crop_size": 224,
+    "source_batch_size_per_domain": 8,
+    "target_batch_size": 24,
+    "num_workers": 4
+  },
+  "model": {
+    "architecture": "resnet18",
+    "weights": "IMAGENET1K_V1",
+    "feature_dimension": 512,
+    "number_of_classes": 7,
+    "freeze_batchnorm_running_statistics": true,
+    "train_batchnorm_affine_parameters": true
+  },
+  "training": {
+    "optimizer": "adamw",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "maximum_epochs": 30,
+    "early_stopping_patience": 5,
+    "checkpoint_metric": "mean_source_validation_macro_f1",
+    "use_automatic_mixed_precision": true
+  },
+  "evaluation": {
+    "domain_separability": {
+      "classifier": "logistic_regression",
+      "c": 1.0,
+      "test_fraction": 0.3,
+      "balanced": true,
+      "seed": 6304
+    }
+  },
+  "controlled_study": {
+    "method": "dan",
+    "mmd_weights": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "hypothesis": "increasing_alignment_pressure_reduces_domain_separability_but_may_remove_class_information"
+  },
+  "method": {
+    "name": "dan",
+    "classification_loss_weight": 1.0,
+    "uses_unlabeled_target": true,
+    "mmd_loss_weight": 0.1,
+    "kernel_bandwidth_multipliers": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "bandwidth_statistic": "median_pairwise_squared_distance"
+  }
+}

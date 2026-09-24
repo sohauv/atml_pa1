@@ -1,0 +1,9 @@
+path,domain,true_class_id,true_class_name,predicted_class_id,predicted_class_name,maximum_confidence,dan_prediction,dan_confidence,dann_prediction,dann_confidence,cdan_prediction,cdan_confidence,agreement_count
+sketch/giraffe/n02439033_10164-7.png,sketch,2,giraffe,0,dog,0.774427592754364,dog,0.8505478501319885,dog,0.9459621906280518,dog,1.0,3
+sketch/giraffe/n02439033_9598-8.png,sketch,2,giraffe,0,dog,0.7308562994003296,dog,0.9611459374427797,dog,0.6182699203491211,dog,1.0,3
+sketch/horse/n02374451_14738-1.png,sketch,4,horse,0,dog,0.6585468649864197,dog,0.9819322824478148,dog,0.747394859790802,dog,1.0,3
+sketch/horse/n02374451_2846-9.png,sketch,4,horse,0,dog,0.3904358446598053,dog,0.9938406944274902,dog,0.6057755947113037,dog,1.0,3
+sketch/dog/n02103406_3255-3.png,sketch,0,dog,1,elephant,0.9999545812606812,elephant,0.9797288775444032,elephant,0.7875024080276489,dog,0.9999996423721312,2
+sketch/dog/n02109525_16346-1.png,sketch,0,dog,1,elephant,0.9924163818359376,elephant,0.4208951294422149,elephant,0.5972045063972473,dog,1.0,2
+sketch/guitar/n03467517_17233-2.png,sketch,3,guitar,2,giraffe,0.9492290019989014,giraffe,0.5576760768890381,giraffe,0.9454057812690736,dog,1.0,2
+sketch/guitar/n02676566_5489-3.png,sketch,3,guitar,2,giraffe,0.9019607305526732,giraffe,0.7453562617301941,giraffe,0.6166882514953613,dog,0.9999992847442628,2

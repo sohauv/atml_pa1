@@ -51,3 +51,11 @@ python -m task4.evaluate_final \
   --cifar10-root /path/to/cifar10 \
   --cifar100-root /path/to/cifar100
 ```
+
+Generate the fixed-result tables, figures, class-level summaries, and Vanilla
+MLS failure examples without rerunning any model:
+
+```bash
+python -m task4.evaluation.plot_task4_results \
+  --cifar100-root /path/to/cifar100
+```

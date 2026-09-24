@@ -27,3 +27,17 @@ The command fits Vanilla Mahalanobis statistics on the unaugmented CIFAR-10
 training split and fixes every rejection threshold at the 95th percentile of
 the CIFAR-10 validation unknownness scores. It does not evaluate CIFAR-10 test
 or load CIFAR-100.
+
+PROSER is initialized from the selected Vanilla checkpoint, adds five dummy
+classifiers, and fine-tunes the complete network for 50 epochs. Its objective
+implements classifier placeholders and different-class manifold mixup after
+`layer2`, following Zhou, Ye, and Zhan (CVPR 2021):
+
+```bash
+python -m task4.train_proser --data-root /path/to/cifar-data
+python -m task4.calibrate_proser --data-root /path/to/cifar-data
+```
+
+The implementation adapts the loss construction and strongest-dummy handling
+from the authors' public reference implementation:
+https://github.com/zhoudw-zdw/CVPR21-Proser

@@ -10,3 +10,4 @@ method:
 
 training:
   use_automatic_mixed_precision: false
+  gradient_clip_norm: 5.0

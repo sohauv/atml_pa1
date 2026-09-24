@@ -310,7 +310,30 @@ def train_one_epoch(
                 target_images,
                 progress,
             )
-        scaler.scale(output["total_loss"]).backward()
+        total_loss = output["total_loss"]
+        if not torch.isfinite(total_loss):
+            raise FloatingPointError(
+                f"Non-finite training loss at epoch {epoch}, step {step}: "
+                f"{total_loss.detach().item()}"
+            )
+
+        scaler.scale(total_loss).backward()
+
+        gradient_clip_norm = config["training"].get("gradient_clip_norm")
+        if gradient_clip_norm is not None:
+            scaler.unscale_(optimizer)
+            parameters_with_gradients = [
+                parameter
+                for group in optimizer.param_groups
+                for parameter in group["params"]
+                if parameter.grad is not None
+            ]
+            gradient_norm = nn.utils.clip_grad_norm_(
+                parameters_with_gradients,
+                max_norm=float(gradient_clip_norm),
+            )
+            output["gradient_norm"] = gradient_norm.detach()
+
         scaler.step(optimizer)
         scaler.update()
 
@@ -322,6 +345,7 @@ def train_one_epoch(
             "domain_accuracy",
             "mmd_bandwidth",
             "gradient_reversal_strength",
+            "gradient_norm",
         )
         for key in tracked_keys:
             if key in output:

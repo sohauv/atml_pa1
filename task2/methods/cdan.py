@@ -45,7 +45,15 @@ def cdan_objective(
     classification_loss = nn.functional.cross_entropy(source_logits, source_labels)
 
     probabilities = combined_logits.softmax(dim=1)
-    conditioned_features = multilinear_conditioning(combined_features, probabilities)
+    normalized_features = nn.functional.normalize(
+        combined_features,
+        p=2,
+        dim=1,
+    )
+    conditioned_features = multilinear_conditioning(
+        normalized_features,
+        probabilities,
+    )
     labels = domain_labels(
         source_count,
         target_features.shape[0],

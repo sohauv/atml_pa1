@@ -179,18 +179,20 @@ def build_source_datasets(
 def build_task2_target_dataset(
     pacs_root: str | Path,
     class_to_index: dict[str, int],
+    training: bool,
     return_metadata: bool = True,
 ) -> PACSDataset:
-    """Build Sketch for Task 2 only; callers must not use labels during adaptation."""
+    """Build Sketch for Task 2 without exposing labels during adaptation."""
 
     target_records = discover_domain_records(
         pacs_root,
         TARGET_DOMAIN,
         class_to_index=class_to_index,
     )
+    transform = training_transform() if training else evaluation_transform()
     return PACSDataset(
         pacs_root,
         target_records,
-        transform=evaluation_transform(),
+        transform=transform,
         return_metadata=return_metadata,
     )

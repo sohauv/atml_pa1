@@ -82,6 +82,44 @@ def build_cifar10(root, split_path, randaugment=False, create=False, seed=6304):
     return train, validation, test, manifest
 
 
+def build_cifar10_evaluation_sets(root, split_path):
+    """Build unaugmented train/validation/test views from a fixed split."""
+
+    path = Path(split_path)
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Missing split manifest {path}. Run Task 4 training first."
+        )
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    train_base = datasets.CIFAR10(root=root, train=True, download=True)
+    test_base = datasets.CIFAR10(root=root, train=False, download=True)
+    transform = evaluation_transform()
+    train = ArrayDataset(
+        train_base.data,
+        train_base.targets,
+        transform,
+        train_base.classes,
+        manifest["train_indices"],
+        "cifar10_train_unaugmented",
+    )
+    validation = ArrayDataset(
+        train_base.data,
+        train_base.targets,
+        transform,
+        train_base.classes,
+        manifest["validation_indices"],
+        "cifar10_validation",
+    )
+    test = ArrayDataset(
+        test_base.data,
+        test_base.targets,
+        transform,
+        test_base.classes,
+        domain="cifar10_test",
+    )
+    return train, validation, test, manifest
+
+
 def build_unknowns(root):
     base = datasets.CIFAR100(root=root, train=False, download=True)
     mapping = {name: index for index, name in enumerate(base.classes)}

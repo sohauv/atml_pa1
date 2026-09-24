@@ -15,3 +15,15 @@ python -m task4.train --method gcsc --data-root datasets
 
 Both runs train for 100 epochs and retain the checkpoint with the highest
 CIFAR-10 validation accuracy.
+
+After both runs, freeze their checkpoints and calibrate the required open-set
+scores using only CIFAR-10 training and validation data:
+
+```bash
+python -m task4.calibrate_scores --data-root /path/to/cifar-data
+```
+
+The command fits Vanilla Mahalanobis statistics on the unaugmented CIFAR-10
+training split and fixes every rejection threshold at the 95th percentile of
+the CIFAR-10 validation unknownness scores. It does not evaluate CIFAR-10 test
+or load CIFAR-100.

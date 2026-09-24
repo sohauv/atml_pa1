@@ -1,0 +1,2160 @@
+{
+  "protocol": {
+    "source_domains": [
+      "photo",
+      "art_painting",
+      "cartoon"
+    ],
+    "target_domain": "sketch",
+    "target_labels_used_only_in_final_evaluation": true,
+    "all_training_selection_and_diagnostics_fixed_before_target_evaluation": true,
+    "seed": 6304
+  },
+  "runs": {
+    "erm": {
+      "checkpoint": "task2/checkpoints/source_only_best.pt",
+      "selected_epoch": 5,
+      "source_diagnostics": {
+        "checkpoint": "task2/checkpoints/source_only_best.pt",
+        "selected_epoch": 5,
+        "source_domains": {
+          "photo": {
+            "number_of_examples": 334,
+            "accuracy": 0.9670658682634731,
+            "macro_f1": 0.959265811587793,
+            "per_class_accuracy": {
+              "dog": 0.9736842105263158,
+              "elephant": 0.926829268292683,
+              "giraffe": 0.8888888888888888,
+              "guitar": 1.0,
+              "horse": 0.925,
+              "house": 1.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 38,
+              "elephant": 41,
+              "giraffe": 36,
+              "guitar": 37,
+              "horse": 40,
+              "house": 56,
+              "person": 86
+            },
+            "confusion_matrix": [
+              [
+                37,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                3,
+                38,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                32,
+                1,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                37,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                1,
+                37,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                56,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                86
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "art_painting": {
+            "number_of_examples": 410,
+            "accuracy": 0.9146341463414634,
+            "macro_f1": 0.9124889960433283,
+            "per_class_accuracy": {
+              "dog": 0.9210526315789473,
+              "elephant": 0.9803921568627451,
+              "giraffe": 0.8771929824561403,
+              "guitar": 1.0,
+              "horse": 0.875,
+              "house": 0.8813559322033898,
+              "person": 0.9
+            },
+            "class_counts": {
+              "dog": 76,
+              "elephant": 51,
+              "giraffe": 57,
+              "guitar": 37,
+              "horse": 40,
+              "house": 59,
+              "person": 90
+            },
+            "confusion_matrix": [
+              [
+                70,
+                2,
+                1,
+                0,
+                2,
+                0,
+                1
+              ],
+              [
+                0,
+                50,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                2,
+                50,
+                1,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                37,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                2,
+                0,
+                2,
+                35,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                3,
+                1,
+                52,
+                1
+              ],
+              [
+                6,
+                1,
+                0,
+                0,
+                2,
+                0,
+                81
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "cartoon": {
+            "number_of_examples": 469,
+            "accuracy": 0.9445628997867804,
+            "macro_f1": 0.9484921487721011,
+            "per_class_accuracy": {
+              "dog": 0.9487179487179487,
+              "elephant": 0.967032967032967,
+              "giraffe": 0.9565217391304348,
+              "guitar": 1.0,
+              "horse": 0.8615384615384616,
+              "house": 0.9827586206896551,
+              "person": 0.9259259259259259
+            },
+            "class_counts": {
+              "dog": 78,
+              "elephant": 91,
+              "giraffe": 69,
+              "guitar": 27,
+              "horse": 65,
+              "house": 58,
+              "person": 81
+            },
+            "confusion_matrix": [
+              [
+                74,
+                1,
+                0,
+                0,
+                2,
+                0,
+                1
+              ],
+              [
+                1,
+                88,
+                0,
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                2,
+                0,
+                66,
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                27,
+                0,
+                0,
+                0
+              ],
+              [
+                6,
+                1,
+                1,
+                0,
+                56,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                1,
+                0,
+                57,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                2,
+                0,
+                75
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          }
+        },
+        "source_summary": {
+          "mean_accuracy": 0.9420876381305723,
+          "worst_accuracy": 0.9146341463414634,
+          "mean_macro_f1": 0.9400823188010742,
+          "worst_macro_f1": 0.9124889960433283
+        },
+        "source_domain_separability": 0.8737541528239202,
+        "sharpness_proxy": {
+          "base_loss": 0.16081546247005463,
+          "perturbed_loss": 0.38631418347358704,
+          "loss_increase": 0.2254987210035324,
+          "radius": 0.05
+        }
+      },
+      "target": {
+        "accuracy": 0.6828709595316874,
+        "macro_f1": 0.6727403961788129,
+        "per_class": {
+          "dog": {
+            "precision": 0.8081632653061225,
+            "recall": 0.25647668393782386,
+            "f1": 0.3893805309734513,
+            "support": 772
+          },
+          "elephant": {
+            "precision": 0.5109540636042402,
+            "recall": 0.977027027027027,
+            "f1": 0.6709976798143852,
+            "support": 740
+          },
+          "giraffe": {
+            "precision": 0.7808896210873146,
+            "recall": 0.6294820717131474,
+            "f1": 0.6970588235294117,
+            "support": 753
+          },
+          "guitar": {
+            "precision": 0.9813084112149533,
+            "recall": 0.8634868421052632,
+            "f1": 0.9186351706036745,
+            "support": 608
+          },
+          "horse": {
+            "precision": 0.6480730223123732,
+            "recall": 0.7830882352941176,
+            "f1": 0.709211986681465,
+            "support": 816
+          },
+          "house": {
+            "precision": 0.9772727272727273,
+            "recall": 0.5375,
+            "f1": 0.6935483870967742,
+            "support": 80
+          },
+          "person": {
+            "precision": 0.8350515463917526,
+            "recall": 0.50625,
+            "f1": 0.6303501945525292,
+            "support": 160
+          }
+        },
+        "confusion_matrix": [
+          [
+            198,
+            344,
+            40,
+            0,
+            180,
+            0,
+            10
+          ],
+          [
+            4,
+            723,
+            2,
+            0,
+            10,
+            0,
+            1
+          ],
+          [
+            31,
+            97,
+            474,
+            4,
+            145,
+            0,
+            2
+          ],
+          [
+            0,
+            64,
+            15,
+            525,
+            2,
+            1,
+            1
+          ],
+          [
+            9,
+            125,
+            40,
+            1,
+            639,
+            0,
+            2
+          ],
+          [
+            0,
+            15,
+            8,
+            5,
+            9,
+            43,
+            0
+          ],
+          [
+            3,
+            47,
+            28,
+            0,
+            1,
+            0,
+            81
+          ]
+        ],
+        "accuracy_change_vs_erm": 0.0,
+        "macro_f1_change_vs_erm": 0.0
+      }
+    },
+    "dan_dg_lambda0_1": {
+      "checkpoint": "task3/checkpoints/dan_dg_lambda0_1_best.pt",
+      "selected_epoch": 9,
+      "source_diagnostics": {
+        "checkpoint": "task3/checkpoints/dan_dg_lambda0_1_best.pt",
+        "selected_epoch": 9,
+        "source_domains": {
+          "photo": {
+            "number_of_examples": 334,
+            "accuracy": 0.9700598802395209,
+            "macro_f1": 0.9655577481415646,
+            "per_class_accuracy": {
+              "dog": 0.9736842105263158,
+              "elephant": 0.9512195121951219,
+              "giraffe": 0.9722222222222222,
+              "guitar": 0.972972972972973,
+              "horse": 0.875,
+              "house": 1.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 38,
+              "elephant": 41,
+              "giraffe": 36,
+              "guitar": 37,
+              "horse": 40,
+              "house": 56,
+              "person": 86
+            },
+            "confusion_matrix": [
+              [
+                37,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                39,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                35,
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                36,
+                0,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                1,
+                0,
+                35,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                56,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                86
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "art_painting": {
+            "number_of_examples": 410,
+            "accuracy": 0.9146341463414634,
+            "macro_f1": 0.9165505262520102,
+            "per_class_accuracy": {
+              "dog": 0.9342105263157895,
+              "elephant": 0.9411764705882353,
+              "giraffe": 0.9473684210526315,
+              "guitar": 0.9459459459459459,
+              "horse": 0.725,
+              "house": 0.9830508474576272,
+              "person": 0.8888888888888888
+            },
+            "class_counts": {
+              "dog": 76,
+              "elephant": 51,
+              "giraffe": 57,
+              "guitar": 37,
+              "horse": 40,
+              "house": 59,
+              "person": 90
+            },
+            "confusion_matrix": [
+              [
+                71,
+                0,
+                0,
+                0,
+                0,
+                0,
+                5
+              ],
+              [
+                1,
+                48,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                3,
+                0,
+                54,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0,
+                35,
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                3,
+                1,
+                0,
+                29,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                1,
+                0,
+                58,
+                0
+              ],
+              [
+                6,
+                0,
+                2,
+                0,
+                1,
+                1,
+                80
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "cartoon": {
+            "number_of_examples": 469,
+            "accuracy": 0.9594882729211087,
+            "macro_f1": 0.9627595323445858,
+            "per_class_accuracy": {
+              "dog": 0.9358974358974359,
+              "elephant": 0.978021978021978,
+              "giraffe": 0.9855072463768116,
+              "guitar": 1.0,
+              "horse": 0.8307692307692308,
+              "house": 1.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 78,
+              "elephant": 91,
+              "giraffe": 69,
+              "guitar": 27,
+              "horse": 65,
+              "house": 58,
+              "person": 81
+            },
+            "confusion_matrix": [
+              [
+                73,
+                1,
+                1,
+                0,
+                1,
+                0,
+                2
+              ],
+              [
+                0,
+                89,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                68,
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                27,
+                0,
+                0,
+                0
+              ],
+              [
+                6,
+                1,
+                0,
+                0,
+                54,
+                0,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                58,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                81
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          }
+        },
+        "source_summary": {
+          "mean_accuracy": 0.9480607665006978,
+          "worst_accuracy": 0.9146341463414634,
+          "mean_macro_f1": 0.9482892689127201,
+          "worst_macro_f1": 0.9165505262520102
+        },
+        "source_domain_separability": 0.7441860465116279,
+        "sharpness_proxy": {
+          "base_loss": 0.11619041115045547,
+          "perturbed_loss": 0.28331267833709717,
+          "loss_increase": 0.1671222746372223,
+          "radius": 0.05
+        }
+      },
+      "target": {
+        "accuracy": 0.6930516670908629,
+        "macro_f1": 0.7182421148969037,
+        "per_class": {
+          "dog": {
+            "precision": 0.6433691756272402,
+            "recall": 0.4650259067357513,
+            "f1": 0.5398496240601504,
+            "support": 772
+          },
+          "elephant": {
+            "precision": 0.5072046109510087,
+            "recall": 0.9513513513513514,
+            "f1": 0.6616541353383458,
+            "support": 740
+          },
+          "giraffe": {
+            "precision": 0.8444055944055944,
+            "recall": 0.6414342629482072,
+            "f1": 0.7290566037735849,
+            "support": 753
+          },
+          "guitar": {
+            "precision": 1.0,
+            "recall": 0.8552631578947368,
+            "f1": 0.9219858156028369,
+            "support": 608
+          },
+          "horse": {
+            "precision": 0.75,
+            "recall": 0.5955882352941176,
+            "f1": 0.6639344262295082,
+            "support": 816
+          },
+          "house": {
+            "precision": 0.9558823529411765,
+            "recall": 0.8125,
+            "f1": 0.8783783783783784,
+            "support": 80
+          },
+          "person": {
+            "precision": 0.6057142857142858,
+            "recall": 0.6625,
+            "f1": 0.6328358208955224,
+            "support": 160
+          }
+        },
+        "confusion_matrix": [
+          [
+            359,
+            288,
+            23,
+            0,
+            77,
+            1,
+            24
+          ],
+          [
+            31,
+            704,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          [
+            70,
+            95,
+            483,
+            0,
+            84,
+            2,
+            19
+          ],
+          [
+            3,
+            67,
+            14,
+            520,
+            0,
+            0,
+            4
+          ],
+          [
+            95,
+            171,
+            47,
+            0,
+            486,
+            0,
+            17
+          ],
+          [
+            0,
+            15,
+            0,
+            0,
+            0,
+            65,
+            0
+          ],
+          [
+            0,
+            48,
+            5,
+            0,
+            1,
+            0,
+            106
+          ]
+        ],
+        "accuracy_change_vs_erm": 0.01018070755917544,
+        "macro_f1_change_vs_erm": 0.04550171871809083
+      }
+    },
+    "dan_dg": {
+      "checkpoint": "task3/checkpoints/dan_dg_best.pt",
+      "selected_epoch": 1,
+      "source_diagnostics": {
+        "checkpoint": "task3/checkpoints/dan_dg_best.pt",
+        "selected_epoch": 1,
+        "source_domains": {
+          "photo": {
+            "number_of_examples": 334,
+            "accuracy": 0.25748502994011974,
+            "macro_f1": 0.058503401360544216,
+            "per_class_accuracy": {
+              "dog": 0.0,
+              "elephant": 0.0,
+              "giraffe": 0.0,
+              "guitar": 0.0,
+              "horse": 0.0,
+              "house": 0.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 38,
+              "elephant": 41,
+              "giraffe": 36,
+              "guitar": 37,
+              "horse": 40,
+              "house": 56,
+              "person": 86
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                38
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                41
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                36
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                37
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                40
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                56
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                86
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "art_painting": {
+            "number_of_examples": 410,
+            "accuracy": 0.21951219512195122,
+            "macro_f1": 0.05142857142857143,
+            "per_class_accuracy": {
+              "dog": 0.0,
+              "elephant": 0.0,
+              "giraffe": 0.0,
+              "guitar": 0.0,
+              "horse": 0.0,
+              "house": 0.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 76,
+              "elephant": 51,
+              "giraffe": 57,
+              "guitar": 37,
+              "horse": 40,
+              "house": 59,
+              "person": 90
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                76
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                51
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                57
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                37
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                40
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                59
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                90
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "cartoon": {
+            "number_of_examples": 469,
+            "accuracy": 0.17270788912579957,
+            "macro_f1": 0.04207792207792208,
+            "per_class_accuracy": {
+              "dog": 0.0,
+              "elephant": 0.0,
+              "giraffe": 0.0,
+              "guitar": 0.0,
+              "horse": 0.0,
+              "house": 0.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 78,
+              "elephant": 91,
+              "giraffe": 69,
+              "guitar": 27,
+              "horse": 65,
+              "house": 58,
+              "person": 81
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                78
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                91
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                69
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                27
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                65
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                58
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                81
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          }
+        },
+        "source_summary": {
+          "mean_accuracy": 0.21656837139595686,
+          "worst_accuracy": 0.17270788912579957,
+          "mean_macro_f1": 0.05066996495567924,
+          "worst_macro_f1": 0.04207792207792208
+        },
+        "source_domain_separability": 0.33222591362126247,
+        "sharpness_proxy": {
+          "base_loss": 1.9324451684951782,
+          "perturbed_loss": 1.9462887048721313,
+          "loss_increase": 0.013843536376953125,
+          "radius": 0.05
+        }
+      },
+      "target": {
+        "accuracy": 0.04072283023670145,
+        "macro_f1": 0.011179820424134438,
+        "per_class": {
+          "dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 772
+          },
+          "elephant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 740
+          },
+          "giraffe": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 753
+          },
+          "guitar": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 608
+          },
+          "horse": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 816
+          },
+          "house": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 80
+          },
+          "person": {
+            "precision": 0.04072283023670145,
+            "recall": 1.0,
+            "f1": 0.07825874296894106,
+            "support": 160
+          }
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            772
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            740
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            753
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            608
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            816
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            80
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            160
+          ]
+        ],
+        "accuracy_change_vs_erm": -0.642148129294986,
+        "macro_f1_change_vs_erm": -0.6615605757546784
+      }
+    },
+    "dan_dg_lambda10": {
+      "checkpoint": "task3/checkpoints/dan_dg_lambda10_best.pt",
+      "selected_epoch": 2,
+      "source_diagnostics": {
+        "checkpoint": "task3/checkpoints/dan_dg_lambda10_best.pt",
+        "selected_epoch": 2,
+        "source_domains": {
+          "photo": {
+            "number_of_examples": 334,
+            "accuracy": 0.25748502994011974,
+            "macro_f1": 0.058503401360544216,
+            "per_class_accuracy": {
+              "dog": 0.0,
+              "elephant": 0.0,
+              "giraffe": 0.0,
+              "guitar": 0.0,
+              "horse": 0.0,
+              "house": 0.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 38,
+              "elephant": 41,
+              "giraffe": 36,
+              "guitar": 37,
+              "horse": 40,
+              "house": 56,
+              "person": 86
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                38
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                41
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                36
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                37
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                40
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                56
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                86
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "art_painting": {
+            "number_of_examples": 410,
+            "accuracy": 0.21951219512195122,
+            "macro_f1": 0.05142857142857143,
+            "per_class_accuracy": {
+              "dog": 0.0,
+              "elephant": 0.0,
+              "giraffe": 0.0,
+              "guitar": 0.0,
+              "horse": 0.0,
+              "house": 0.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 76,
+              "elephant": 51,
+              "giraffe": 57,
+              "guitar": 37,
+              "horse": 40,
+              "house": 59,
+              "person": 90
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                76
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                51
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                57
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                37
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                40
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                59
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                90
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "cartoon": {
+            "number_of_examples": 469,
+            "accuracy": 0.17270788912579957,
+            "macro_f1": 0.04207792207792208,
+            "per_class_accuracy": {
+              "dog": 0.0,
+              "elephant": 0.0,
+              "giraffe": 0.0,
+              "guitar": 0.0,
+              "horse": 0.0,
+              "house": 0.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 78,
+              "elephant": 91,
+              "giraffe": 69,
+              "guitar": 27,
+              "horse": 65,
+              "house": 58,
+              "person": 81
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                78
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                91
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                69
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                27
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                65
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                58
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                81
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          }
+        },
+        "source_summary": {
+          "mean_accuracy": 0.21656837139595686,
+          "worst_accuracy": 0.17270788912579957,
+          "mean_macro_f1": 0.05066996495567924,
+          "worst_macro_f1": 0.04207792207792208
+        },
+        "source_domain_separability": 0.33222591362126247,
+        "sharpness_proxy": {
+          "base_loss": 1.9330049753189087,
+          "perturbed_loss": 1.9813718795776367,
+          "loss_increase": 0.04836690425872803,
+          "radius": 0.05
+        }
+      },
+      "target": {
+        "accuracy": 0.04072283023670145,
+        "macro_f1": 0.011179820424134438,
+        "per_class": {
+          "dog": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 772
+          },
+          "elephant": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 740
+          },
+          "giraffe": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 753
+          },
+          "guitar": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 608
+          },
+          "horse": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 816
+          },
+          "house": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 80
+          },
+          "person": {
+            "precision": 0.04072283023670145,
+            "recall": 1.0,
+            "f1": 0.07825874296894106,
+            "support": 160
+          }
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            772
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            740
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            753
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            608
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            816
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            80
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            160
+          ]
+        ],
+        "accuracy_change_vs_erm": -0.642148129294986,
+        "macro_f1_change_vs_erm": -0.6615605757546784
+      }
+    },
+    "sam": {
+      "checkpoint": "task3/checkpoints/sam_best.pt",
+      "selected_epoch": 7,
+      "source_diagnostics": {
+        "checkpoint": "task3/checkpoints/sam_best.pt",
+        "selected_epoch": 7,
+        "source_domains": {
+          "photo": {
+            "number_of_examples": 334,
+            "accuracy": 0.9790419161676647,
+            "macro_f1": 0.9743147434455436,
+            "per_class_accuracy": {
+              "dog": 0.8947368421052632,
+              "elephant": 0.975609756097561,
+              "giraffe": 0.9722222222222222,
+              "guitar": 1.0,
+              "horse": 0.975,
+              "house": 1.0,
+              "person": 1.0
+            },
+            "class_counts": {
+              "dog": 38,
+              "elephant": 41,
+              "giraffe": 36,
+              "guitar": 37,
+              "horse": 40,
+              "house": 56,
+              "person": 86
+            },
+            "confusion_matrix": [
+              [
+                34,
+                1,
+                0,
+                0,
+                3,
+                0,
+                0
+              ],
+              [
+                1,
+                40,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                35,
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                37,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0,
+                0,
+                39,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                56,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                86
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "art_painting": {
+            "number_of_examples": 410,
+            "accuracy": 0.926829268292683,
+            "macro_f1": 0.931491442463037,
+            "per_class_accuracy": {
+              "dog": 0.8947368421052632,
+              "elephant": 1.0,
+              "giraffe": 0.9473684210526315,
+              "guitar": 0.9459459459459459,
+              "horse": 0.95,
+              "house": 0.9830508474576272,
+              "person": 0.8444444444444444
+            },
+            "class_counts": {
+              "dog": 76,
+              "elephant": 51,
+              "giraffe": 57,
+              "guitar": 37,
+              "horse": 40,
+              "house": 59,
+              "person": 90
+            },
+            "confusion_matrix": [
+              [
+                68,
+                4,
+                0,
+                0,
+                3,
+                0,
+                1
+              ],
+              [
+                0,
+                51,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                54,
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                0,
+                35,
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                0,
+                38,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                1,
+                0,
+                58,
+                0
+              ],
+              [
+                7,
+                2,
+                1,
+                0,
+                2,
+                2,
+                76
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          },
+          "cartoon": {
+            "number_of_examples": 469,
+            "accuracy": 0.9637526652452025,
+            "macro_f1": 0.9668552904616334,
+            "per_class_accuracy": {
+              "dog": 0.9487179487179487,
+              "elephant": 0.945054945054945,
+              "giraffe": 0.9710144927536232,
+              "guitar": 1.0,
+              "horse": 0.9538461538461539,
+              "house": 1.0,
+              "person": 0.9629629629629629
+            },
+            "class_counts": {
+              "dog": 78,
+              "elephant": 91,
+              "giraffe": 69,
+              "guitar": 27,
+              "horse": 65,
+              "house": 58,
+              "person": 81
+            },
+            "confusion_matrix": [
+              [
+                74,
+                0,
+                0,
+                0,
+                2,
+                0,
+                2
+              ],
+              [
+                2,
+                86,
+                1,
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                67,
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                27,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                0,
+                0,
+                62,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                58,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0,
+                1,
+                0,
+                78
+              ]
+            ],
+            "class_order": [
+              "dog",
+              "elephant",
+              "giraffe",
+              "guitar",
+              "horse",
+              "house",
+              "person"
+            ]
+          }
+        },
+        "source_summary": {
+          "mean_accuracy": 0.9565412832351834,
+          "worst_accuracy": 0.926829268292683,
+          "mean_macro_f1": 0.9575538254567381,
+          "worst_macro_f1": 0.931491442463037
+        },
+        "source_domain_separability": 0.8571428571428571,
+        "sharpness_proxy": {
+          "base_loss": 0.11500634998083115,
+          "perturbed_loss": 0.2279500961303711,
+          "loss_increase": 0.11294374614953995,
+          "radius": 0.05
+        }
+      },
+      "target": {
+        "accuracy": 0.643420717739883,
+        "macro_f1": 0.6804736815048644,
+        "per_class": {
+          "dog": {
+            "precision": 0.41251885369532426,
+            "recall": 0.7085492227979274,
+            "f1": 0.5214489990467112,
+            "support": 772
+          },
+          "elephant": {
+            "precision": 0.6449787835926449,
+            "recall": 0.6162162162162163,
+            "f1": 0.6302695231513477,
+            "support": 740
+          },
+          "giraffe": {
+            "precision": 0.9556786703601108,
+            "recall": 0.4581673306772908,
+            "f1": 0.6193895870736086,
+            "support": 753
+          },
+          "guitar": {
+            "precision": 0.9898373983739838,
+            "recall": 0.8009868421052632,
+            "f1": 0.8854545454545455,
+            "support": 608
+          },
+          "horse": {
+            "precision": 0.6515513126491647,
+            "recall": 0.6691176470588235,
+            "f1": 0.660217654171705,
+            "support": 816
+          },
+          "house": {
+            "precision": 0.9855072463768116,
+            "recall": 0.85,
+            "f1": 0.912751677852349,
+            "support": 80
+          },
+          "person": {
+            "precision": 0.5808823529411765,
+            "recall": 0.49375,
+            "f1": 0.5337837837837838,
+            "support": 160
+          }
+        },
+        "confusion_matrix": [
+          [
+            547,
+            105,
+            3,
+            0,
+            100,
+            0,
+            17
+          ],
+          [
+            225,
+            456,
+            0,
+            0,
+            55,
+            0,
+            4
+          ],
+          [
+            220,
+            25,
+            345,
+            5,
+            134,
+            0,
+            24
+          ],
+          [
+            33,
+            75,
+            1,
+            487,
+            1,
+            1,
+            10
+          ],
+          [
+            238,
+            26,
+            4,
+            0,
+            546,
+            0,
+            2
+          ],
+          [
+            0,
+            11,
+            1,
+            0,
+            0,
+            68,
+            0
+          ],
+          [
+            63,
+            9,
+            7,
+            0,
+            2,
+            0,
+            79
+          ]
+        ],
+        "accuracy_change_vs_erm": -0.03945024179180445,
+        "macro_f1_change_vs_erm": 0.007733285326051553
+      }
+    }
+  }
+}

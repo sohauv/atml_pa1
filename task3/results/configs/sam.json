@@ -1,0 +1,29 @@
+{
+  "experiment": {
+    "seed": 6304
+  },
+  "data": {
+    "split_manifest": "shared/splits/pacs_sketch_seed6304.json",
+    "batch_size_per_domain": 8,
+    "validation_batch_size": 64,
+    "num_workers": 2,
+    "root": "/kaggle/working/datasets/pacs_extracted/pacs"
+  },
+  "model": {
+    "feature_dimension": 512,
+    "number_of_classes": 7
+  },
+  "training": {
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "maximum_epochs": 30,
+    "early_stopping_patience": 5,
+    "gradient_clip_norm": 5.0,
+    "use_automatic_mixed_precision": false
+  },
+  "method": {
+    "name": "sam",
+    "rho": 0.05,
+    "adaptive": false
+  }
+}

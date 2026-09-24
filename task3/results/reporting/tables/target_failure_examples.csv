@@ -1,0 +1,7 @@
+run_name,path,domain,true_class_id,true_class_name,predicted_class_id,predicted_class_name,maximum_confidence
+erm,sketch/dog/n02103406_3255-3.png,sketch,0,dog,1,elephant,0.9999545812606812
+erm,sketch/giraffe/n02439033_14609-2.png,sketch,2,giraffe,1,elephant,0.998698115348816
+dan_dg_lambda0_1,sketch/dog/5290.png,sketch,0,dog,1,elephant,0.999882698059082
+dan_dg_lambda0_1,sketch/person/12160.png,sketch,6,person,1,elephant,0.9977681636810304
+sam,sketch/dog/n02109525_6693-3.png,sketch,0,dog,1,elephant,0.9714797139167786
+sam,sketch/elephant/n02503517_3808-4.png,sketch,1,elephant,0,dog,0.9413502216339112

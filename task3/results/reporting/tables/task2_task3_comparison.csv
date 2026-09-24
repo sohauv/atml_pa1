@@ -1,0 +1,9 @@
+run_name,target_accuracy,target_macro_f1,task,method
+source_only,0.6828709595316874,0.6727403961788129,Task 2 adaptation,ERM
+dan,0.6691270043268007,0.631887082823712,Task 2 adaptation,DAN
+dann,0.3705777551539832,0.4622423190874457,Task 2 adaptation,DANN
+cdan,0.2104861287859506,0.070492296365567,Task 2 adaptation,CDAN
+erm,0.6828709595316874,0.6727403961788129,Task 3 generalization,ERM
+dan_dg_lambda0_1,0.6930516670908629,0.7182421148969037,Task 3 generalization,DAN-DG (λ=0.1)
+dan_dg,0.04072283023670145,0.011179820424134438,Task 3 generalization,DAN-DG (λ=1)
+sam,0.643420717739883,0.6804736815048644,Task 3 generalization,SAM (ρ=0.05)

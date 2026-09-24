@@ -1,0 +1,5 @@
+method:
+  name: gcsc
+  randaugment: true
+  randaugment_num_ops: 2
+  randaugment_magnitude: 9

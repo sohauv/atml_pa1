@@ -41,3 +41,13 @@ python -m task4.calibrate_proser --data-root /path/to/cifar-data
 The implementation adapts the loss construction and strongest-dummy handling
 from the authors' public reference implementation:
 https://github.com/zhoudw-zdw/CVPR21-Proser
+
+After all checkpoints and thresholds are frozen, run the one-time final
+evaluation on the official CIFAR-10 test set and the fixed CIFAR-100 Near/Far
+groups:
+
+```bash
+python -m task4.evaluate_final \
+  --cifar10-root /path/to/cifar10 \
+  --cifar100-root /path/to/cifar100
+```

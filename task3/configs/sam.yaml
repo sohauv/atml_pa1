@@ -1,0 +1,4 @@
+method:
+  name: sam
+  rho: 0.05
+  adaptive: false

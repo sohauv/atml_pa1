@@ -1,0 +1,4 @@
+method:
+  name: dan_dg
+  alignment_weight: 1.0
+  bandwidth_multipliers: [0.5, 1.0, 2.0]

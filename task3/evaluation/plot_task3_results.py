@@ -100,6 +100,7 @@ def make_training_curves(repo_root, output):
         frame = pd.read_csv(path); axes[0].plot(frame.epoch, frame.train_total_loss, marker="o", markersize=3, label=label)
         axes[1].plot(frame.epoch, frame.mean_source_validation_macro_f1, marker="o", markersize=3, label=label)
     axes[0].set_title("Training objective"); axes[0].set_ylabel("Loss"); axes[1].set_title("Source validation selection metric"); axes[1].set_ylabel("Mean macro-F1"); axes[1].set_ylim(0, 1)
+    axes[0].set_yscale("log")
     for axis in axes: axis.set_xlabel("Epoch"); axis.grid(alpha=.25)
     axes[1].legend(fontsize=8); fig.tight_layout(); save_figure(fig, output / "training_curves.png")
 
@@ -112,7 +113,8 @@ def make_per_class_and_confusions(results, output, tables):
         for name in class_names:
             rows.append({"run_name": run, "method": LABELS[run], "class_name": name, **results["runs"][run]["target"]["per_class"][name]})
     frame = pd.DataFrame(rows); frame.to_csv(tables / "per_class_metrics.csv", index=False)
-    pivot = frame.pivot(index="class_name", columns="method", values="f1").loc[class_names]
+    method_order = [LABELS[run] for run in runs]
+    pivot = frame.pivot(index="class_name", columns="method", values="f1").loc[class_names, method_order]
     fig, axis = plt.subplots(figsize=(10, 4.8)); pivot.plot.bar(ax=axis, width=.8)
     axis.set_ylim(0, 1); axis.set_ylabel("Sketch F1"); axis.set_xlabel("PACS class"); axis.set_title("Per-class Sketch performance"); axis.grid(axis="y", alpha=.25); axis.legend(fontsize=8); fig.tight_layout()
     save_figure(fig, output / "per_class_f1.png")
@@ -136,9 +138,14 @@ def make_task2_comparison(repo_root, results, output, tables):
         target = results["runs"][run]["target"]
         task3_rows.append({"run_name": run, "target_accuracy": target["accuracy"], "target_macro_f1": target["macro_f1"], "task": "Task 3 generalization", "method": LABELS[run]})
     frame = pd.concat([task2, pd.DataFrame(task3_rows)], ignore_index=True); frame.to_csv(tables / "task2_task3_comparison.csv", index=False)
-    fig, axis = plt.subplots(figsize=(10, 4.8)); x=np.arange(len(frame)); width=.36
-    axis.bar(x-width/2, frame.target_accuracy, width, label="Accuracy", color="#4c78a8"); axis.bar(x+width/2, frame.target_macro_f1, width, label="Macro-F1", color="#f28e2b")
-    axis.set_xticks(x, [f"{m}\n({t.replace('Task ', 'T')})" for m,t in zip(frame.method, frame.task)], rotation=15, ha="right"); axis.set_ylim(0,1); axis.set_ylabel("Sketch score"); axis.set_title("Task 2 adaptation and Task 3 generalization on Sketch"); axis.grid(axis="y", alpha=.25); axis.legend(); fig.tight_layout()
+    fig, axis = plt.subplots(figsize=(9, 6)); y=np.arange(len(frame)); height=.36
+    axis.barh(y+height/2, frame.target_accuracy, height, label="Accuracy", color="#4c78a8")
+    axis.barh(y-height/2, frame.target_macro_f1, height, label="Macro-F1", color="#f28e2b")
+    task_labels = frame.task.map({"Task 2 adaptation": "T2 adaptation", "Task 3 generalization": "T3 generalization"})
+    axis.set_yticks(y, [f"{task}: {method}" for task, method in zip(task_labels, frame.method)])
+    axis.invert_yaxis(); axis.set_xlim(0,1); axis.set_xlabel("Sketch score")
+    axis.set_title("Task 2 adaptation and Task 3 generalization on Sketch")
+    axis.grid(axis="x", alpha=.25); axis.legend(); fig.tight_layout()
     save_figure(fig, output / "task2_task3_comparison.png")
 
 

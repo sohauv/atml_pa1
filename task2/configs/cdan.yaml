@@ -11,3 +11,6 @@ method:
   detach_features: false
   detach_probabilities: false
   entropy_conditioning: false
+
+  training:
+  use_automatic_mixed_precision: false

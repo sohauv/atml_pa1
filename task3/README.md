@@ -78,8 +78,11 @@ python -m task3.evaluate_sources \
 
 This produces per-source accuracy and macro-F1, mean and worst-source scores,
 a balanced source-domain linear-probe accuracy, and the fixed-batch normalized
-ascent sharpness proxy. Outputs are written to
-`task3/results/source_diagnostics/`.
+ascent sharpness proxy. For the domain probe, each feature dimension is
+standardized using statistics fitted only on the probe-training split before
+balanced logistic regression; this avoids solver failures caused by
+ill-conditioned feature scales without using the held-out probe split or
+Sketch data. Outputs are written to `task3/results/source_diagnostics/`.
 
 ## Final Sketch evaluation
 

@@ -105,6 +105,7 @@ def train_epoch(config, backbone, classifier, optimizer, loaders, device):
                 backbone, classifier, images, labels,
                 alignment_weight=config["method"]["alignment_weight"],
                 bandwidth_multipliers=tuple(config["method"]["bandwidth_multipliers"]),
+                normalize_features_for_mmd=config["method"]["normalize_features_for_mmd"],
             )
             output["total_loss"].backward()
             torch.nn.utils.clip_grad_norm_(parameters, config["training"]["gradient_clip_norm"])

@@ -50,10 +50,16 @@ All model selection uses mean source-validation macro-F1. The three DAN-DG
 weights are therefore 0.1, 1, and 10, with `dan_dg` representing weight 1.
 
 Every update draws exactly eight examples from each source domain. Incomplete
-final batches are dropped and the smaller domain loaders are cycled. DAN-DG
-and SAM run in float32 and use global gradient-norm clipping at 5 as numerical
-stability measures. These settings do not use Sketch data and are fixed before
-source-only diagnostics or final Sketch evaluation.
+final batches are dropped with `drop_last=True`, and the smaller domain loaders
+are cycled. DAN-DG and SAM run in float32 and use global gradient-norm clipping
+at 5 as numerical-stability measures. For DAN-DG, features entering the MMD
+term are L2-normalized while the classifier continues to receive the original
+unnormalized features. This additional numerical-stability modification was
+introduced because stronger MMD weights caused feature-scale collapse and
+failure to learn; it keeps the alignment term finite without changing the
+classification pathway. These settings use only source training and validation
+behavior, do not use Sketch data, and are fixed before source-only diagnostics
+or final Sketch evaluation.
 
 ## Protocol guardrail
 

@@ -63,6 +63,7 @@ def build_loaders(config: dict, data_root: str | Path):
         domain: DataLoader(
             train_sets[domain], batch_size=config["data"]["batch_size_per_domain"],
             shuffle=True, num_workers=config["data"]["num_workers"], pin_memory=True,
+            drop_last=True,
         ) for domain in SOURCE_DOMAINS
     }
     validation_loaders = {

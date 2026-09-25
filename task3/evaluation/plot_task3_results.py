@@ -95,14 +95,21 @@ def make_diagnostics(results, output, tables):
 def make_training_curves(repo_root, output):
     files = {"ERM": repo_root/"task2/results/training/source_only_history.csv", "DAN-DG (λ=0.1)": repo_root/"task3/results/training/dan_dg_lambda0_1_history.csv",
              "DAN-DG (λ=1)": repo_root/"task3/results/training/dan_dg_history.csv", "DAN-DG (λ=10)": repo_root/"task3/results/training/dan_dg_lambda10_history.csv", "SAM": repo_root/"task3/results/training/sam_history.csv"}
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.2))
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8.5))
     for label, path in files.items():
-        frame = pd.read_csv(path); axes[0].plot(frame.epoch, frame.train_total_loss, marker="o", markersize=3, label=label)
-        axes[1].plot(frame.epoch, frame.mean_source_validation_macro_f1, marker="o", markersize=3, label=label)
-    axes[0].set_title("Training objective"); axes[0].set_ylabel("Loss"); axes[1].set_title("Source validation selection metric"); axes[1].set_ylabel("Mean macro-F1"); axes[1].set_ylim(0, 1)
-    axes[0].set_yscale("log")
-    for axis in axes: axis.set_xlabel("Epoch"); axis.grid(alpha=.25)
-    axes[1].legend(fontsize=8); fig.tight_layout(); save_figure(fig, output / "training_curves.png")
+        frame = pd.read_csv(path)
+        axes[0, 0].plot(frame.epoch, frame.train_classification_loss, marker="o", markersize=3, label=label)
+        axes[1, 0].plot(frame.epoch, frame.train_total_loss, marker="o", markersize=3, label=label)
+        axes[1, 1].plot(frame.epoch, frame.mean_source_validation_macro_f1, marker="o", markersize=3, label=label)
+        if "train_alignment_loss" in frame:
+            axes[0, 1].plot(frame.epoch, frame.train_alignment_loss, marker="o", markersize=3, label=label)
+    axes[0, 0].set_title("Classification loss"); axes[0, 0].set_ylabel("Loss")
+    axes[0, 1].set_title("DAN-DG MMD alignment loss"); axes[0, 1].set_ylabel("MMD")
+    axes[1, 0].set_title("Total training objective"); axes[1, 0].set_ylabel("Loss"); axes[1, 0].set_yscale("log")
+    axes[1, 1].set_title("Source validation selection metric"); axes[1, 1].set_ylabel("Mean macro-F1"); axes[1, 1].set_ylim(0, 1)
+    for axis in axes.flat:
+        axis.set_xlabel("Epoch"); axis.grid(alpha=.25); axis.legend(fontsize=7)
+    fig.tight_layout(); save_figure(fig, output / "training_curves.png")
 
 
 def make_per_class_and_confusions(results, output, tables):

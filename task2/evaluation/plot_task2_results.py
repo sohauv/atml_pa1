@@ -133,6 +133,59 @@ def save_dan_study(summary: pd.DataFrame, output_dir: Path) -> None:
     print(f"Saved {path}")
 
 
+def save_training_loss_curves(training_dir: Path, output_dir: Path) -> None:
+    """Plot the required classification and alignment/domain loss components."""
+
+    specifications = (
+        (
+            "source_only",
+            "Source-only",
+            (("train_classification_loss", "Classification"),),
+        ),
+        (
+            "dan",
+            "DAN (lambda=1)",
+            (
+                ("train_classification_loss", "Classification"),
+                ("train_alignment_loss", "MMD alignment"),
+            ),
+        ),
+        (
+            "dann",
+            "DANN",
+            (
+                ("train_classification_loss", "Classification"),
+                ("train_domain_loss", "Domain"),
+            ),
+        ),
+        (
+            "cdan",
+            "CDAN",
+            (
+                ("train_classification_loss", "Classification"),
+                ("train_domain_loss", "Domain"),
+            ),
+        ),
+    )
+    fig, axes = plt.subplots(2, 2, figsize=(13, 9))
+    for ax, (run_name, title, columns) in zip(axes.flat, specifications):
+        history_path = training_dir / f"{run_name}_history.csv"
+        history = pd.read_csv(history_path)
+        for column, label in columns:
+            ax.plot(history["epoch"], history[column], marker="o", label=label)
+        ax.set_title(title)
+        ax.set_xlabel("Epoch")
+        ax.set_ylabel("Loss")
+        ax.grid(alpha=0.25)
+        ax.legend()
+    fig.suptitle("Task 2 training loss components")
+    fig.tight_layout()
+    path = output_dir / "training_loss_components.png"
+    fig.savefig(path, dpi=220, bbox_inches="tight")
+    plt.close(fig)
+    print(f"Saved {path}")
+
+
 def make_class_tables(
     predictions: dict[str, pd.DataFrame], class_names: list[str], output_dir: Path
 ) -> pd.DataFrame:
@@ -285,6 +338,7 @@ def main() -> None:
     sns.set_theme(style="whitegrid", context="talk")
     save_main_comparison(summary, output_dir)
     save_dan_study(summary, output_dir)
+    save_training_loss_curves(results_dir.parent / "training", output_dir)
     class_table = make_class_tables(predictions, class_names, output_dir)
     save_per_class_plot(class_table, output_dir)
     save_confusion_matrices(predictions, class_names, output_dir)

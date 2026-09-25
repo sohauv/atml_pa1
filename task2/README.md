@@ -175,6 +175,8 @@ a seeded 70/30 split, and balanced logistic regression with `C=1`.
 - `results/final/predictions/`: per-image Sketch predictions
 - `results/reporting/main_method_comparison.png`: target scores and separability
 - `results/reporting/dan_lambda_study.png`: controlled alignment-strength study
+- `results/reporting/training_loss_components.png`: classification and
+  alignment/domain training losses
 - `results/reporting/confusion_matrices.png`: normalized target confusion matrices
 - `results/reporting/per_class_f1.png`: per-class target comparison
 - `results/reporting/target_failure_examples.png`: deterministic failure examples

@@ -46,8 +46,14 @@ python -m task3.train --method dan_dg \
   --alignment-weight 10 --run-name dan_dg_lambda10
 ```
 
-All model selection uses mean source-validation macro-F1. The four DAN-DG
+All model selection uses mean source-validation macro-F1. The three DAN-DG
 weights are therefore 0.1, 1, and 10, with `dan_dg` representing weight 1.
+
+Every update draws exactly eight examples from each source domain. Incomplete
+final batches are dropped and the smaller domain loaders are cycled. DAN-DG
+and SAM run in float32 and use global gradient-norm clipping at 5 as numerical
+stability measures. These settings do not use Sketch data and are fixed before
+source-only diagnostics or final Sketch evaluation.
 
 ## Protocol guardrail
 
@@ -92,6 +98,10 @@ python -m task3.evaluation.plot_task3_results \
 
 Figures and their compact source tables are written to
 `task3/results/reporting/`.
+
+`training_curves.png` separately reports classification loss, DAN-DG MMD
+alignment loss, the total objective, and the source-validation selection
+metric.
 
 ## Fixed results
 

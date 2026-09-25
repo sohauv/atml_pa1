@@ -28,6 +28,7 @@
       0.5,
       1.0,
       2.0
-    ]
+    ],
+    "normalize_features_for_mmd": true
   }
 }

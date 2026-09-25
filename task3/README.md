@@ -116,14 +116,16 @@ metric.
 
 | Run | Mean source macro-F1 | Source separability | Sharpness increase | Sketch accuracy | Sketch macro-F1 |
 |---|---:|---:|---:|---:|---:|
-| ERM | 0.9401 | 0.8738 | 0.2255 | 0.6829 | 0.6727 |
-| DAN-DG, lambda 0.1 | 0.9483 | 0.7442 | 0.1671 | 0.6931 | 0.7182 |
-| DAN-DG, lambda 1 | 0.0507 | 0.3322 | 0.0138 | 0.0407 | 0.0112 |
-| DAN-DG, lambda 10 | 0.0507 | 0.3322 | 0.0484 | 0.0407 | 0.0112 |
-| SAM, rho 0.05 | 0.9576 | 0.8571 | 0.1129 | 0.6434 | 0.6805 |
+| ERM | 0.9401 | 0.8505 | 0.2255 | 0.6829 | 0.6727 |
+| DAN-DG, lambda 0.1 | 0.9402 | 0.7542 | 1.6264 | 0.6918 | 0.7138 |
+| DAN-DG, lambda 1 | 0.9081 | 0.6213 | 83.4487 | 0.5548 | 0.4479 |
+| DAN-DG, lambda 10 | 0.0507 | 0.6678 | 6.6424 | 0.0407 | 0.0112 |
+| SAM, rho 0.05 | 0.9552 | 0.8405 | 0.1618 | 0.7200 | 0.7528 |
 
-Source-domain separability has chance level `1/3`. The near-chance values for
-DAN-DG weights 1 and 10 accompany chance-level classification, showing feature
-collapse rather than useful domain invariance. The controlled weight 0.1
-reduces separability while retaining class information and gives the strongest
-Sketch macro-F1.
+Source-domain separability has chance level `1/3`. Increasing the DAN-DG weight
+reduces recoverable source-domain information, but this does not reliably
+preserve class information: weight 1 substantially damages source and Sketch
+recognition, while weight 10 collapses classification. Weight 0.1 retains
+source performance and modestly improves Sketch over ERM. SAM gives the best
+Sketch accuracy and macro-F1 and the lowest measured sharpness increase among
+the non-collapsed models.

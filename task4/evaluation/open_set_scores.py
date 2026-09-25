@@ -41,7 +41,7 @@ def fit_shared_diagonal_gaussian(
         residuals.append(class_features - class_mean)
     means = torch.stack(means)
     pooled_residuals = torch.cat(residuals, dim=0)
-    variance = pooled_residuals.square().mean(dim=0).clamp_min(regularization)
+    variance = pooled_residuals.square().mean(dim=0) + float(regularization)
     return means, variance
 
 

@@ -35,10 +35,10 @@
           "validation_score_std": 1.4508997201919556
         },
         "mahalanobis": {
-          "threshold": 2976.3443359375,
+          "threshold": 2975.2699340820313,
           "validation_known_acceptance": 0.95,
-          "validation_score_mean": 806.4716186523438,
-          "validation_score_std": 894.7594604492188
+          "validation_score_mean": 806.153076171875,
+          "validation_score_std": 894.4102783203125
         }
       },
       "mahalanobis_statistics": "task4/results/calibration/vanilla_mahalanobis_stats.npz"

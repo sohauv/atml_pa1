@@ -91,7 +91,7 @@
       "selected_epoch": 95,
       "known_test_accuracy": 0.9471,
       "known_test_macro_f1": 0.9470819980237491,
-      "threshold": 2976.3443359375,
+      "threshold": 2975.2699340820313,
       "known_test_acceptance": 0.9496,
       "near_rejection": 0.28625,
       "far_rejection": 0.525,
@@ -99,9 +99,9 @@
       "near_fpr_at_95_tpr": 0.71375,
       "far_fpr_at_95_tpr": 0.475,
       "all_unknown_fpr_at_95_tpr": 0.594375,
-      "known_vs_near_auroc": 0.8024970625000001,
-      "known_vs_far_auroc": 0.9125920000000001,
-      "known_vs_all_auroc": 0.8575445312500001
+      "known_vs_near_auroc": 0.8024990000000002,
+      "known_vs_far_auroc": 0.9125935,
+      "known_vs_all_auroc": 0.8575462500000001
     },
     "gcsc_mls": {
       "run_name": "gcsc_mls",
